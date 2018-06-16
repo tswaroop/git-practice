@@ -21,13 +21,28 @@ class TestClass(object):
             else:
                 print i
 
-
     def oh_this_is_trouble(self, param1, param2):
         """Oh man this fucntion is trouble"""
         for i in range(20):
             print 'trouble' + i * '!'
             for j in range(10):
                 print i * j
+
+    def csv_to_json(self, csv_file_path, outfile_path):
+        """Convert a file containing a list of flat JSON objects to a csv.
+
+        What's a DictWriter, you say? Never heard of it!
+
+        """
+        csvfile = open('csv_file_path', 'r')
+        jsonfile = open('outfile_path', 'w')
+
+        fieldnames = ("FirstName","LastName","IDNumber","Message")
+        reader = csv.DictReader( csvfile, fieldnames)
+        for row in reader:
+            json.dump(row, jsonfile)
+            jsonfile.write('\n')
+
 
     def json_to_csv(self, json_file_path, outfile_path):
         """Convert a file containing a list of flat JSON objects to a csv.
