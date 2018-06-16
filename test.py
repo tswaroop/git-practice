@@ -21,13 +21,6 @@ class TestClass(object):
             else:
                 print i
 
-    def oh_this_is_trouble(self, param1, param2):
-        """Oh man this fucntion is trouble"""
-        for i in range(20):
-            print 'trouble' + i * '!'
-            for j in range(10):
-                print i * j
-
     def csv_to_json(self, csv_file_path, outfile_path):
         """Convert a file containing a list of flat JSON objects to a csv.
 
@@ -42,7 +35,6 @@ class TestClass(object):
         for row in reader:
             json.dump(row, jsonfile)
             jsonfile.write('\n')
-
 
     def json_to_csv(self, json_file_path, outfile_path):
         """Convert a file containing a list of flat JSON objects to a csv.
@@ -66,9 +58,9 @@ class TestClass(object):
     def isPalindrome(self, s):
         # Calling reverse function
         rev = self.reverse(s)
-     
         # Checking if both string are equal or not
         if (s == rev):
             return True
         return False
+
 
