@@ -21,6 +21,21 @@ class TestClass(object):
             else:
                 print i
 
+    def csv_to_json(self, csv_file_path, outfile_path):
+        """Convert a file containing a list of flat JSON objects to a csv.
+
+        What's a DictWriter, you say? Never heard of it!
+
+        """
+        csvfile = open('csv_file_path', 'r')
+        jsonfile = open('outfile_path', 'w')
+
+        fieldnames = ("FirstName","LastName","IDNumber","Message")
+        reader = csv.DictReader( csvfile, fieldnames)
+        for row in reader:
+            json.dump(row, jsonfile)
+            jsonfile.write('\n')
+
     def json_to_csv(self, json_file_path, outfile_path):
         """Convert a file containing a list of flat JSON objects to a csv.
 
@@ -34,3 +49,17 @@ class TestClass(object):
             writer.writerow(data[0].keys())
             for item in data:
                 writer.writerow(item.values())
+
+    # function which return reverse of a string
+    def reverse(s):
+        return s[::-1]
+        
+    # check given string as palindrome or not 
+    def isPalindrome(s):
+        # Calling reverse function
+        rev = reverse(s)
+     
+        # Checking if both string are equal or not
+        if (s == rev):
+            return True
+        return False
