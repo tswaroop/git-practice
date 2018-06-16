@@ -58,6 +58,17 @@ class TestClass(object):
             for item in data:
                 writer.writerow(item.values())
 
-if __name__ == '__main__':
-    t = TestClass(1, 2, 3)
-    TestClass.fizz_buzz(3, 5)
+    # function which return reverse of a string
+    def reverse(self, s):
+        return s[::-1]
+        
+    # check given string as palindrome or not 
+    def isPalindrome(self, s):
+        # Calling reverse function
+        rev = self.reverse(s)
+     
+        # Checking if both string are equal or not
+        if (s == rev):
+            return True
+        return False
+
